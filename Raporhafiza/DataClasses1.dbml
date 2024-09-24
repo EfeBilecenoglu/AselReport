@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Aselrapor" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=USER-BILGISAYAR;Initial Catalog=Aselrapor;Integrated Security=True" SettingsObjectName="Raporhafiza.Properties.Settings" SettingsPropertyName="AselraporConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Islem" Member="Islems">
+    <Type Name="Islem">
+      <Column Name="Islem_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Aciklama" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="rapor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Rapor_Islem" Member="Rapor" ThisKey="rapor_id" OtherKey="id" Type="Rapor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rapor" Member="Rapors">
+    <Type Name="Rapor">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Yer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Gorevli_Personel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Tarih" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Gorev_Tipi" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Sehir" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Rapor_Islem" Member="Islems" ThisKey="id" OtherKey="rapor_id" Type="Islem" />
+    </Type>
+  </Table>
+</Database>
